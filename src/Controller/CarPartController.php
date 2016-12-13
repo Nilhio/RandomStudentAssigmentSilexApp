@@ -2,7 +2,9 @@
 namespace Controller;
 
 use Repository\CarPartRepository;
+use Silex\Application;
 use Symfony\Component\Form\Form;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -38,28 +40,33 @@ class CarPartController
     }
 
     /**
+     * @param Request $request
      * @return string
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $parts = $this->repo->fetchAll();
+        $title = $request->query->has('title') ? $request->query->get('title') : '';
+        $parts = $this->repo->fetchByTitle($title);
 
         return $this->twig->render('index.html.twig', array(
             'parts' => $parts,
+            'search' => $title,
         ));
     }
 
     /**
+     * @param Application $app
      * @param Request $request
      * @return FormView
      */
-    public function newAction(Request $request)
+    public function newAction(Application $app, Request $request)
     {
         $this->form->handleRequest($request);
 
         if ($this->form->isValid()) {
-            $data = $this->form->getData();
-            var_dump($data);
+            $this->repo->insert($this->form->getData());
+
+            return $app->redirect('/');
         }
 
         return $this->twig->render('form.html.twig', array(

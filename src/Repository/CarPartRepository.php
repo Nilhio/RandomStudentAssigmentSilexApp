@@ -3,6 +3,8 @@
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Driver\PDOException;
+use Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector;
 
 /**
  * Class PartRepository
@@ -25,10 +27,22 @@ class CarPartRepository
     }
 
     /**
+     * @param $title
      * @return mixed
      */
-    public function fetchAll()
+    public function fetchByTitle($title)
     {
-        return $this->db->fetchAll("SELECT * FROM parts");
+        return $this->db->fetchAll('SELECT * FROM parts WHERE title LIKE ?', ['%'.$title.'%']);
+    }
+
+    public function insert($data)
+    {
+        try {
+            $this->db->insert('parts', $data);
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        return true;
     }
 }
