@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Pavadinimas</th>
+        <th>Tipas</th>
+        <th>Kiekis</th>
+        <th>Kaina</th>
+        <th>Sukurtas</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for part in parts %}
+        <tr>
+            <td>{{ part.id }}</td>
+            <td>{{ part.title }}</td>
+            <td>{{ part.type }}</td>
+            <td>{{ part.qnt }}</td>
+            <td>{{ part.price }}</td>
+            <td>{{ part.created|date('Y-m-d') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'form_style.html.twig' %}
+
+{% block content %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<div class="form-group">
+        <button type="submit" class="btn btn-primary btn-large">Sukurti detalę</button>
+</div>
+{{ form_end(form) }}
+{% endblock %}
