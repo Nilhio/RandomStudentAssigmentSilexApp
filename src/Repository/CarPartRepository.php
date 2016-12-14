@@ -4,7 +4,6 @@ namespace Repository;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOException;
-use Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector;
 
 /**
  * Class PartRepository

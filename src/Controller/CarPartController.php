@@ -6,6 +6,7 @@ use Silex\Application;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
  * Class ApiController
@@ -109,5 +110,28 @@ class CarPartController
         return $this->twig->render('form.html.twig', array(
             'form' => $this->form->createView(),
         ));
+    }
+
+    /**
+     * @return StreamedResponse
+     */
+    public function exportAction()
+    {
+        $response = new StreamedResponse(function () {
+
+            $results = $this->repo->fetchByTitle('');
+            $handle = fopen('php://output', 'r+');
+
+            foreach ($results as $row) {
+                fputcsv($handle, $row);
+            }
+
+            fclose($handle);
+        });
+
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-Disposition', 'attachment; filename="dalys.txt"');
+
+        return $response;
     }
 }

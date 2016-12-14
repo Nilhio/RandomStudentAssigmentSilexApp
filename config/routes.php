@@ -10,3 +10,5 @@ $app->post("/parts/{id}/edit", "part.controller:editAction");
 
 
 $app->get("/parts/{id}/delete", "part.controller:deleteAction");
+
+$app->get("/parts/export", "part.controller:exportAction");
