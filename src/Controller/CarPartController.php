@@ -31,6 +31,7 @@ class CarPartController
      * CarPartController constructor.
      * @param CarPartRepository $partRepository
      * @param \Twig_Environment $twig
+     * @param Form $form
      */
     public function __construct(CarPartRepository $partRepository, \Twig_Environment $twig, Form $form)
     {
@@ -68,6 +69,42 @@ class CarPartController
 
             return $app->redirect('/');
         }
+
+        return $this->twig->render('form.html.twig', array(
+            'form' => $this->form->createView(),
+        ));
+    }
+
+    /**
+     * @param $id
+     * @param Application $app
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteAction($id, Application $app)
+    {
+        $this->repo->delete($id);
+
+        return $app->redirect('/');
+    }
+
+    /**
+     * @param $id
+     * @param Application $app
+     * @param Request $request
+     * @return string|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function editAction($id, Application $app, Request $request)
+    {
+        $this->form->handleRequest($request);
+
+        if ($this->form->isValid()) {
+            $this->repo->update($id, $this->form->getData());
+
+            return $app->redirect('/');
+        }
+
+        $entity = $this->repo->fetchById($id);
+        $this->form->setData($entity);
 
         return $this->twig->render('form.html.twig', array(
             'form' => $this->form->createView(),

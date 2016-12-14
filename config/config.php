@@ -29,3 +29,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
         __DIR__ . '/../views',
     ]
 ));
+
+/* Assets */
+$app['asset_path'] = '/assets/dist';

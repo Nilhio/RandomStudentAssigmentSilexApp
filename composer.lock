@@ -704,7 +704,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -761,7 +761,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -821,16 +821,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "a4866cfe14de964673ec679ec61a74567b7e1882"
+                "reference": "103f62da3209192773665a416e4faf13ff261a90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/a4866cfe14de964673ec679ec61a74567b7e1882",
-                "reference": "a4866cfe14de964673ec679ec61a74567b7e1882",
+                "url": "https://api.github.com/repos/symfony/form/zipball/103f62da3209192773665a416e4faf13ff261a90",
+                "reference": "103f62da3209192773665a416e4faf13ff261a90",
                 "shasum": ""
             },
             "require": {
@@ -892,11 +892,11 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-25 12:32:42"
+            "time": "2016-12-13 08:00:09"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -949,16 +949,16 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "19ba70df47c062065b9f99522feb73d64856ba8e"
+                "reference": "8fedefadee9c91567414a07130c81e7c406fe68a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/19ba70df47c062065b9f99522feb73d64856ba8e",
-                "reference": "19ba70df47c062065b9f99522feb73d64856ba8e",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/8fedefadee9c91567414a07130c81e7c406fe68a",
+                "reference": "8fedefadee9c91567414a07130c81e7c406fe68a",
                 "shasum": ""
             },
             "require": {
@@ -1027,11 +1027,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-30 08:46:02"
+            "time": "2016-12-13 13:19:46"
         },
         {
             "name": "symfony/inflector",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
@@ -1088,7 +1088,7 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -1163,7 +1163,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -1393,16 +1393,16 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "3e14d80a2a600cb0439ae4acb29cfa6bcdc21a0a"
+                "reference": "1cee1399154c1ac20184587ba4a6908488bf5eee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/3e14d80a2a600cb0439ae4acb29cfa6bcdc21a0a",
-                "reference": "3e14d80a2a600cb0439ae4acb29cfa6bcdc21a0a",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/1cee1399154c1ac20184587ba4a6908488bf5eee",
+                "reference": "1cee1399154c1ac20184587ba4a6908488bf5eee",
                 "shasum": ""
             },
             "require": {
@@ -1457,11 +1457,11 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2016-08-16 16:09:30"
+            "time": "2016-12-08 15:18:22"
         },
         {
             "name": "symfony/routing",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -1536,16 +1536,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "64ab6fc0b42e5386631f408e6adcaaff8eee5ba1"
+                "reference": "5fd18eca88f4d187807a1eba083bc99feaa8635b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/64ab6fc0b42e5386631f408e6adcaaff8eee5ba1",
-                "reference": "64ab6fc0b42e5386631f408e6adcaaff8eee5ba1",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/5fd18eca88f4d187807a1eba083bc99feaa8635b",
+                "reference": "5fd18eca88f4d187807a1eba083bc99feaa8635b",
                 "shasum": ""
             },
             "require": {
@@ -1596,20 +1596,20 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-18 21:17:59"
+            "time": "2016-11-30 14:40:17"
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "9a5cc4dd0f05425bfab26d6e33299becc45bcd4f"
+                "reference": "f6d8339d7b8b1d71b60eb13888d5db53acb868ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/9a5cc4dd0f05425bfab26d6e33299becc45bcd4f",
-                "reference": "9a5cc4dd0f05425bfab26d6e33299becc45bcd4f",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/f6d8339d7b8b1d71b60eb13888d5db53acb868ac",
+                "reference": "f6d8339d7b8b1d71b60eb13888d5db53acb868ac",
                 "shasum": ""
             },
             "require": {
@@ -1677,20 +1677,20 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2016-11-15 16:06:06"
+            "time": "2016-12-12 19:31:24"
         },
         {
             "name": "symfony/validator",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "43e744c7e7cfaabc2f7e167cc699a38ef24012b6"
+                "reference": "b13f838f9ca9cf6d0de54dfe72d5d359ca2f886f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/43e744c7e7cfaabc2f7e167cc699a38ef24012b6",
-                "reference": "43e744c7e7cfaabc2f7e167cc699a38ef24012b6",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/b13f838f9ca9cf6d0de54dfe72d5d359ca2f886f",
+                "reference": "b13f838f9ca9cf6d0de54dfe72d5d359ca2f886f",
                 "shasum": ""
             },
             "require": {
@@ -1751,20 +1751,20 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-29 13:39:34"
+            "time": "2016-12-08 16:02:17"
         },
         {
             "name": "twig/twig",
-            "version": "v1.28.2",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c"
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b22ce0eb070e41f7cba65d78fe216de29726459c",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/74f723e542368ca2080b252740be5f1113ebb898",
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898",
                 "shasum": ""
             },
             "require": {
@@ -1777,7 +1777,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.28-dev"
+                    "dev-master": "1.29-dev"
                 }
             },
             "autoload": {
@@ -1812,7 +1812,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-11-23 18:41:40"
+            "time": "2016-12-13 17:28:18"
         }
     ],
     "packages-dev": [],

@@ -1,5 +1,5 @@
 {% block stylesheets %}
-    <link rel="stylesheet" href="/assets/css/boostrap.min.css">
+    <link rel="stylesheet" href="{{ app.asset_path }}/css/bootstrap.min.css">
 {% endblock %}
 
 <div class="container-fluid">
@@ -32,6 +32,6 @@
 </div>
 
 {% block javascripts %}
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/boostrap.min.js"></script>
+    <script src="{{ app.asset_path }}/js/jquery.min.js"></script>
+    <script src="{{ app.asset_path }}/js/boostrap.min.js"></script>
 {% endblock %}

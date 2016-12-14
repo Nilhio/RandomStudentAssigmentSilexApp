@@ -35,6 +35,36 @@ class CarPartRepository
         return $this->db->fetchAll('SELECT * FROM parts WHERE title LIKE ?', ['%'.$title.'%']);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function fetchById($id)
+    {
+        return $this->db->fetchAssoc('SELECT * FROM parts WHERE id = ?', [$id]);
+    }
+
+    /**
+     * @param $id
+     */
+    public function delete($id)
+    {
+        $this->db->delete('parts', ['id' => $id]);
+    }
+
+    /**
+     * @param $id
+     * @param $data
+     */
+    public function update($id, $data)
+    {
+        $this->db->update('parts', $data, ['id' => $id]);
+    }
+
+    /**
+     * @param $data
+     * @return bool
+     */
     public function insert($data)
     {
         try {

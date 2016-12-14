@@ -10,6 +10,8 @@
         <th>Kiekis</th>
         <th>Kaina</th>
         <th>Sukurtas</th>
+        <th>Keisti</th>
+        <th>Ištrinti</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +23,12 @@
             <td>{{ part.qnt }}</td>
             <td>{{ part.price }}</td>
             <td>{{ part.created|date('Y-m-d') }}</td>
+            <td class="text-center">
+                <a href="/index.php/parts/{{ part.id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
+            </td>
+            <td class="text-center">
+                <a href="/index.php/parts/{{ part.id }}/delete"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
