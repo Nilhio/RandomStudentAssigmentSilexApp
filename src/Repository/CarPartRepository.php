@@ -26,6 +26,7 @@ class CarPartRepository
     }
 
     /**
+     * Sql inject me bro.
      * @param $title
      * @return mixed
      */

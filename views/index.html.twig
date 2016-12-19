@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
 {% block content %}
-<table class="table">
+<table class="table" id="datatable" >
     <thead>
     <tr>
         <th>#</th>
@@ -33,4 +38,39 @@
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
+    <script type="application/javascript">
+        $('#datatable').dataTable({
+            "columnDefs": [ {
+                "targets": [6, 7],
+                "orderable": false
+            } ],
+            "language": {
+                "sEmptyTable":      "Lentelėje nėra duomenų",
+                "sInfo":            "Rodomi įrašai nuo _START_ iki _END_ iš _TOTAL_ įrašų",
+                "sInfoEmpty":       "Rodomi įrašai nuo 0 iki 0 iš 0",
+                "sInfoFiltered":    "(atrinkta iš _MAX_ įrašų)",
+                "sInfoPostFix":     "",
+                "sInfoThousands":   " ",
+                "sLengthMenu":      "Rodyti _MENU_ įrašus",
+                "sLoadingRecords":  "Įkeliama...",
+                "sProcessing":      "Apdorojama...",
+                "sSearch":          "Ieškoti:",
+                "sThousands":       " ",
+                "sUrl":             "",
+                "sZeroRecords":     "Įrašų nerasta",
+
+                "oPaginate": {
+                    "sFirst": "Pirmas",
+                    "sPrevious": "Ankstesnis",
+                    "sNext": "Tolimesnis",
+                    "sLast": "Paskutinis"
+                }
+            }
+        });
+    </script>
 {% endblock %}
