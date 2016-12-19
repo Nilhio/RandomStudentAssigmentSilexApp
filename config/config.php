@@ -32,5 +32,5 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 /* Assets */
 $app->register(new Silex\Provider\AssetServiceProvider(), array(
-    'assets.base_path' => 'assets/dist'
+    'assets.base_path' => 'web/assets/dist'
 ));
