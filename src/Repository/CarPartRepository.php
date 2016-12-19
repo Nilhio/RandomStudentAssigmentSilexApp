@@ -4,6 +4,7 @@ namespace Repository;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOException;
+use PDO;
 
 /**
  * Class PartRepository
@@ -74,5 +75,18 @@ class CarPartRepository
         }
 
         return true;
+    }
+
+    /**
+     * @param $type
+     * @return int
+     */
+    public function getPartCount($type)
+    {
+        $query = $this->db->prepare('SELECT SUM(qnt) FROM parts WHERE type = :type');
+        $query->bindValue('type', $type, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->fetchColumn(0);
     }
 }

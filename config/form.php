@@ -21,8 +21,8 @@ $app['part.form'] = $app['form.factory']->createBuilder(FormType::class)
         'label' => 'Pavadinimas',
     ])
     ->add('type', ChoiceType::class, array(
-        'choices' => array('BMW' => 'BMW', 'Mercedes' => 'Mercedes'),
-        'constraints' => new Assert\Choice(array('Mercedes', 'BMW')),
+        'choices' => array('BMW' => 'BMW', 'Audi' => 'Audi'),
+        'constraints' => new Assert\Choice(array('Audi', 'BMW')),
         'label' => 'Markė'
     ))
     ->add('price', MoneyType::class, array('label'=>'Kaina'))

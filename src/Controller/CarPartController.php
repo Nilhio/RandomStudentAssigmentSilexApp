@@ -53,6 +53,8 @@ class CarPartController
         return $this->twig->render('index.html.twig', array(
             'parts' => $parts,
             'search' => $title,
+            'audiCount' => $this->repo->getPartCount('Audi'),
+            'bmwCount' => $this->repo->getPartCount('BMW'),
         ));
     }
 
