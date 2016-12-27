@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div>
+
+    </div>
+    <table class="table" id="datatable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Pavadinimas</th>
+            <th>Sukurtas</th>
+            <th>Keisti</th>
+            <th>Ištrinti</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for type in types %}
+            <tr>
+                <td>{{ type.id }}</td>
+                <td>{{ type.title }}</td>
+                <td>{{ type.created|date('Y-m-d') }}</td>
+                <td class="text-center">
+                    <a href="/index.php/types/{{ type.id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
+                </td>
+                <td class="text-center">
+                    <a href="/index.php/types/{{ type.id }}/delete"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
+    <script type="application/javascript">
+        $('#datatable').dataTable({
+            "columnDefs": [{
+                "targets": [3, 4],
+                "orderable": false
+            }],
+            "language": {
+                "sEmptyTable": "Lentelėje nėra duomenų",
+                "sInfo": "Rodomi įrašai nuo _START_ iki _END_ iš _TOTAL_ įrašų",
+                "sInfoEmpty": "Rodomi įrašai nuo 0 iki 0 iš 0",
+                "sInfoFiltered": "(atrinkta iš _MAX_ įrašų)",
+                "sInfoPostFix": "",
+                "sInfoThousands": " ",
+                "sLengthMenu": "Rodyti _MENU_ įrašus",
+                "sLoadingRecords": "Įkeliama...",
+                "sProcessing": "Apdorojama...",
+                "sSearch": "Ieškoti:",
+                "sThousands": " ",
+                "sUrl": "",
+                "sZeroRecords": "Įrašų nerasta",
+
+                "oPaginate": {
+                    "sFirst": "Pirmas",
+                    "sPrevious": "Ankstesnis",
+                    "sNext": "Tolimesnis",
+                    "sLast": "Paskutinis"
+                }
+            }
+        });
+    </script>
+{% endblock %}

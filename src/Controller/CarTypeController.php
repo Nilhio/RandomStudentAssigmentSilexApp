@@ -2,24 +2,23 @@
 
 namespace Controller;
 
-use Repository\CarPartRepository;
 use Silex\Application;
+use Repository\CarTypeRepository;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
- * Class CarPartController
+ * Class CarModelController
  * @package Controller
  */
-class CarPartController
+class CarTypeController
 {
     /**
      * Base path for redirecting.
      */
-    const BASE_PATH = '/';
+    const BASE_PATH = '/index.php/types';
     /**
-     * @var CarPartRepository
+     * @var CarTypeRepository
      */
     protected $repo;
 
@@ -33,15 +32,15 @@ class CarPartController
     protected $form;
 
     /**
-     * CarPartController constructor.
-     * @param CarPartRepository $partRepository
+     * CarModelController constructor.
+     * @param CarTypeRepository $typeRepository
      * @param \Twig_Environment $twig
      * @param Form $form
      */
-    public function __construct(CarPartRepository $partRepository, \Twig_Environment $twig, Form $form)
+    public function __construct(CarTypeRepository $typeRepository, \Twig_Environment $twig, Form $form)
     {
         $this->twig = $twig;
-        $this->repo = $partRepository;
+        $this->repo = $typeRepository;
         $this->form = $form;
     }
 
@@ -52,14 +51,9 @@ class CarPartController
     public function indexAction(Request $request)
     {
         $title = $request->query->has('title') ? $request->query->get('title') : '';
-        $parts = $this->repo->fetchByTitle($title);
+        $types = $this->repo->fetchByTitle($title);
 
-        return $this->twig->render('Part/index.html.twig', array(
-            'parts' => $parts,
-            'search' => $title,
-            'audiCount' => $this->repo->getPartCount('Audi'),
-            'bmwCount' => $this->repo->getPartCount('BMW'),
-        ));
+        return $this->twig->render('Model/index.html.twig', array('types' => $types));
     }
 
     /**
@@ -77,7 +71,7 @@ class CarPartController
             return $app->redirect(self::BASE_PATH);
         }
 
-        return $this->twig->render('Part/form.html.twig', array(
+        return $this->twig->render('Model/form.html.twig', array(
             'form' => $this->form->createView(),
         ));
     }
@@ -113,31 +107,8 @@ class CarPartController
         $entity = $this->repo->fetchById($id);
         $this->form->setData($entity);
 
-        return $this->twig->render('Part/form.html.twig', array(
+        return $this->twig->render('Model/form.html.twig', array(
             'form' => $this->form->createView(),
         ));
-    }
-
-    /**
-     * @return StreamedResponse
-     */
-    public function exportAction()
-    {
-        $response = new StreamedResponse(function () {
-
-            $results = $this->repo->fetchByTitle('');
-            $handle = fopen('php://output', 'r+');
-
-            foreach ($results as $row) {
-                fputcsv($handle, $row);
-            }
-
-            fclose($handle);
-        });
-
-        $response->headers->set('Content-Type', 'application/force-download');
-        $response->headers->set('Content-Disposition', 'attachment; filename="dalys.txt"');
-
-        return $response;
     }
 }

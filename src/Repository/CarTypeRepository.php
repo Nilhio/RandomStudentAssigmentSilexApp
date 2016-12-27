@@ -4,13 +4,12 @@ namespace Repository;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOException;
-use PDO;
 
 /**
- * Class CarPartRepository
+ * Class CarTypeRepository
  * @package Repository
  */
-class CarPartRepository
+class CarTypeRepository
 {
     /**
      * @var Connection
@@ -18,7 +17,7 @@ class CarPartRepository
     protected $db;
 
     /**
-     * CarPartRepository constructor.
+     * CarTypeRepository constructor.
      * @param Connection $dbConnection
      */
     public function __construct(Connection $dbConnection)
@@ -33,7 +32,7 @@ class CarPartRepository
      */
     public function fetchByTitle($title)
     {
-        return $this->db->fetchAll('SELECT * FROM parts WHERE title LIKE ?', ['%'.$title.'%']);
+        return $this->db->fetchAll('SELECT * FROM models WHERE title LIKE ?', ['%'.$title.'%']);
     }
 
     /**
@@ -42,7 +41,7 @@ class CarPartRepository
      */
     public function fetchById($id)
     {
-        return $this->db->fetchAssoc('SELECT * FROM parts WHERE id = ?', [$id]);
+        return $this->db->fetchAssoc('SELECT * FROM models WHERE id = ?', [$id]);
     }
 
     /**
@@ -50,7 +49,7 @@ class CarPartRepository
      */
     public function delete($id)
     {
-        $this->db->delete('parts', ['id' => $id]);
+        $this->db->delete('models', ['id' => $id]);
     }
 
     /**
@@ -59,7 +58,7 @@ class CarPartRepository
      */
     public function update($id, $data)
     {
-        $this->db->update('parts', $data, ['id' => $id]);
+        $this->db->update('models', $data, ['id' => $id]);
     }
 
     /**
@@ -69,7 +68,7 @@ class CarPartRepository
     public function insert($data)
     {
         try {
-            $this->db->insert('parts', $data);
+            $this->db->insert('models', $data);
         } catch (PDOException $e) {
             return false;
         }
@@ -77,16 +76,14 @@ class CarPartRepository
         return true;
     }
 
-    /**
-     * @param $type
-     * @return int
-     */
-    public function getPartCount($type)
+    public function getArray()
     {
-        $query = $this->db->prepare('SELECT SUM(qnt) FROM parts WHERE type = :type');
-        $query->bindValue('type', $type, PDO::PARAM_STR);
-        $query->execute();
+        $result = [];
+        $types = $this->db->fetchAll('SELECT title FROM models');
+        foreach ($types as $type) {
+            $result[$type['title']] = $type['title'];
+        }
 
-        return $query->fetchColumn(0);
+        return $result;
     }
 }
