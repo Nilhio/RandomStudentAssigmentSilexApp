@@ -63,6 +63,23 @@ class CarPartController
     }
 
     /**
+     * @param Request $request
+     * @return string
+     */
+    public function previewAction(Request $request)
+    {
+        $title = $request->query->has('title') ? $request->query->get('title') : '';
+        $parts = $this->repo->fetchByTitle($title);
+
+        return $this->twig->render('Part/preview.html.twig', array(
+            'parts' => $parts,
+            'search' => $title,
+            'audiCount' => $this->repo->getPartCount('Audi'),
+            'bmwCount' => $this->repo->getPartCount('BMW'),
+        ));
+    }
+
+    /**
      * @param Application $app
      * @param Request $request
      * @return string

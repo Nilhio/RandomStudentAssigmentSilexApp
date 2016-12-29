@@ -11,7 +11,7 @@ $app['debug'] = true;
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'admin' => array(
-            'pattern' => '^/',
+            'pattern' => '^/admin',
             'http' => true,
             'users' => array(
                 'admin' => array('ROLE_ADMIN', '$2a$06$TkahVylkOwzpHIkLV1j6qOe4zF/bfcklnzp0x5Uo1feYAL21n.w06'),

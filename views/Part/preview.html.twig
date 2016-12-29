@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div>
+
+    </div>
+    {% if bmwCount or audiCount %}
+    <div class="alert alert-info">
+        <span class="pull-left"><span class="glyphicon glyphicon-piggy-bank "></span><strong> BMW</strong> detalių kiekis: {{ bmwCount }}</span>
+        <span class="pull-right"><span class="glyphicon glyphicon-knight "></span><strong> AUDI</strong> detalių kiekis: {{ audiCount }}</span>
+        <br>
+    </div>
+    {% endif %}
+    <table class="table" id="datatable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Pavadinimas</th>
+            <th>Tipas</th>
+            <th>Kiekis</th>
+            <th>Kaina</th>
+            <th>Sukurtas</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for part in parts %}
+            <tr>
+                <td>{{ part.id }}</td>
+                <td>{{ part.title }}</td>
+                <td>{{ part.type }}</td>
+                <td>{{ part.qnt }}</td>
+                <td>{{ part.price }}</td>
+                <td>{{ part.created|date('Y-m-d') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
+    <script type="application/javascript">
+        $('#datatable').dataTable({
+            "columnDefs": [{
+                "targets": [6, 7],
+                "orderable": false
+            }],
+            "language": {
+                "sEmptyTable": "Lentelėje nėra duomenų",
+                "sInfo": "Rodomi įrašai nuo _START_ iki _END_ iš _TOTAL_ įrašų",
+                "sInfoEmpty": "Rodomi įrašai nuo 0 iki 0 iš 0",
+                "sInfoFiltered": "(atrinkta iš _MAX_ įrašų)",
+                "sInfoPostFix": "",
+                "sInfoThousands": " ",
+                "sLengthMenu": "Rodyti _MENU_ įrašus",
+                "sLoadingRecords": "Įkeliama...",
+                "sProcessing": "Apdorojama...",
+                "sSearch": "Ieškoti:",
+                "sThousands": " ",
+                "sUrl": "",
+                "sZeroRecords": "Įrašų nerasta",
+
+                "oPaginate": {
+                    "sFirst": "Pirmas",
+                    "sPrevious": "Ankstesnis",
+                    "sNext": "Tolimesnis",
+                    "sLast": "Paskutinis"
+                }
+            }
+        });
+    </script>
+{% endblock %}

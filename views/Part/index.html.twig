@@ -39,10 +39,10 @@
                 <td>{{ part.price }}</td>
                 <td>{{ part.created|date('Y-m-d') }}</td>
                 <td class="text-center">
-                    <a href="/index.php/parts/{{ part.id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="/index.php/admin/parts/{{ part.id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
                 </td>
                 <td class="text-center">
-                    <a href="/index.php/parts/{{ part.id }}/delete"><span class="glyphicon glyphicon-trash"></span></a>
+                    <a href="/index.php/admin/parts/{{ part.id }}/delete"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
             </tr>
         {% endfor %}
