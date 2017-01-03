@@ -17,7 +17,7 @@ class CarPartController
     /**
      * Base path for redirecting.
      */
-    const BASE_PATH = '/';
+    const BASE_PATH = '/index.php/admin';
     /**
      * @var CarPartRepository
      */

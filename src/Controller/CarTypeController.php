@@ -16,7 +16,7 @@ class CarTypeController
     /**
      * Base path for redirecting.
      */
-    const BASE_PATH = '/index.php/types';
+    const BASE_PATH = '/index.php/admin/types';
     /**
      * @var CarTypeRepository
      */
